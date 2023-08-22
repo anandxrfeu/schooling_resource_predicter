@@ -1,1 +1,11 @@
-raw_data/
+# pyenv
+.python-version
+
+# dotenv
+.env
+
+# jupyter notebook checkpoints
+**/*.ipynb_checkpoints/
+
+# DS_Store
+**/.DS_Store

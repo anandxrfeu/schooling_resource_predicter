@@ -1,11 +1,28 @@
-# pyenv
-.python-version
-
-# dotenv
 .env
+.env.yaml
+train_flow-deployment.yaml
 
-# jupyter notebook checkpoints
-**/*.ipynb_checkpoints/
+# System files
+.DS_Store
+.ipynb_checkpoints
+*.pyc
+*.swp
+build/
+dist/
+.coverage
+*.iml
+*.egg-info
+*.vscode
 
-# DS_Store
-**/.DS_Store
+# Data files
+*.csv
+*.sqlite
+*.zip
+training_outputs/
+
+*.sublime-project
+*.sublime-workspace
+**/*.code-workspace
+
+# Other
+pytestdebug.log

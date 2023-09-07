@@ -42,10 +42,12 @@ async def predict_funding(ibge_code, year: int = 2023, localization: str = 'Urba
     # let range of funding values from the past
     funding = municipality_data[(municipality_data['Código_IBGE'] == ibge_code) & (municipality_data['Localização'] == localization)].sort_values(by='Ano', ascending=False)[['Ano', 'Adjusted_funding']].to_dict('records')
     adjusted_funding_values = [item['Adjusted_funding'] for item in funding]
+
     # make multiple prediction for all years from current to selected years
     if year - last_year > 0:
         for yr in range(last_year+1, year+1,):
             funding.append({'Ano':yr, 'Adjusted_funding' : random.choice(adjusted_funding_values)})
+
     funding = sorted(funding, key=lambda x: x['Ano'])
     municipality['Adjusted_funding'] = funding
     municipality['Historic_funding'] = municipality.pop('Adjusted_funding')
